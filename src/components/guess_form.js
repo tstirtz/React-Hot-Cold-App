@@ -1,4 +1,5 @@
 import React from 'react';
+import './guess_form.css'
 
 export default class GuessForm extends React.Component{
     constructor(props){

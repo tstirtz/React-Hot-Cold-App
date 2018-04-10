@@ -1,7 +1,16 @@
+.guess-number{
+    text-align: center;
+    width: 80%;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 p{
     font-size: 24px;
-    color: gray;
+    color: black;
 }
+
 span{
     color: #f39c12;
     font-weight: 700;

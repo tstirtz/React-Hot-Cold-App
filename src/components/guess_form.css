@@ -2,4 +2,23 @@ form{
     grid-column-start: 2;
     grid-row-start: 2;
     justify-self: center;
+    text-align: center;
+}
+input{
+    width: 80%;
+    height: 40px;
+    background: #50597b;
+    border: solid 1px #50597b;
+    color: white;
+    font-size: 24px;
+}
+
+button{
+    width: 80%;
+    height: 40px;
+    margin-top: 25px;
+    background: #1F253D;
+    color: gray;
+    border: 1px solid #1F253D;
+    font-size: 24px;
 }

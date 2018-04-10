@@ -3,7 +3,7 @@ import './guess_number.css';
 
 export default function GuessNumber(props){
     return(
-        <div>
+        <div className="guess-number">
             <p>Guess #<span>{props.guessNumber}</span>!</p>
         </div>
     );

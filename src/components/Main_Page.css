@@ -18,7 +18,7 @@ main{
     height: 600px;
     width: 100%;
     margin: 0;
-    grid-template-columns: 15% 70% 15%;
+    grid-template-columns: 20% 60% 20%;
     grid-template-rows: 10% 90%;
     align-items: center;
 }
@@ -31,7 +31,13 @@ h1{
 }
 
 h2{
+    display: flex;
     grid-row-start: 1;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
 }
 h2:hover{
     color: gray;
@@ -51,4 +57,5 @@ h2:hover{
     grid-column-start: 2;
     grid-row-start: 2;
     justify-self: center;
+    background-color: #394264;
 }
