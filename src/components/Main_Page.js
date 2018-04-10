@@ -18,8 +18,6 @@ export default class MainPage extends React.Component {
     }
 
     compareGuess(number){
-        console.log(number);
-        console.log(this.state.randomNumber);
         let diff = this.state.randomNumber - number;
         console.log("This is the difference " + diff);
         if(diff < 0){
@@ -30,15 +28,21 @@ export default class MainPage extends React.Component {
         if(diff > 10){
             console.log("If statement working");
             this.setState({
-                hint: "Cold"
-            });
-        }else if(diff < 10){
-            this.setState({
-                hint: "Hot"
+                hint: "Cold",
+                numberOfGuesses: this.state.numberOfGuesses + 1,
+                pastGuesses: [...this.state.pastGuesses, number]
             });
         }else if(diff === 0){
             this.setState({
-                hint: "Right on the Money!"
+                hint: "Right on the Money!",
+                numberOfGuesses: this.state.numberOfGuesses + 1,
+                pastGuesses: [...this.state.pastGuesses, number]
+            });
+        }else if(diff < 10){
+            this.setState({
+                hint: "Hot",
+                numberOfGuesses: this.state.numberOfGuesses + 1,
+                pastGuesses: [...this.state.pastGuesses, number]
             });
         }
     }
@@ -48,13 +52,13 @@ export default class MainPage extends React.Component {
         return (
             <main>
                 <h1>HOT or COLD</h1>
-                <h2>WHAT?</h2>
-                <h2>+ NEW GAME</h2>
-                <section>
+                <h2 className= "instructions">WHAT?</h2>
+                <h2 className = "new-game">+ NEW GAME</h2>
+                <section className= "game-board">
                     <Hint message={this.state.hint}/>
                     <GuessForm onGuess={number => this.compareGuess(number)}/>
-                    <GuessNumber />
-                    <PreviousGuesses />
+                    <GuessNumber guessNumber={this.state.numberOfGuesses}/>
+                    <PreviousGuesses prevGuesses={this.state.pastGuesses}/>
                 </section>
             </main>
         );
