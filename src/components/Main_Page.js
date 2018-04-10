@@ -53,7 +53,7 @@ export default class MainPage extends React.Component {
             <main>
                 <h1>HOT or COLD</h1>
                 <h2 className= "instructions">WHAT?</h2>
-                <h2 className = "new-game">+ NEW GAME</h2>
+                <h2 className = "new-game" onClick={e => window.location.reload()}>+ NEW GAME</h2>
                 <section className= "game-board">
                     <Hint message={this.state.hint}/>
                     <GuessForm onGuess={number => this.compareGuess(number)}/>

@@ -33,6 +33,10 @@ h1{
 h2{
     grid-row-start: 1;
 }
+h2:hover{
+    color: gray;
+    cursor: pointer;
+}
 
 .instructions{
     grid-column-start: 1;
