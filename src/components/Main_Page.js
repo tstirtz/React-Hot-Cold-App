@@ -10,7 +10,7 @@ export default class MainPage extends React.Component {
     constructor(props){
         super(props);
         this.state = ({
-            randomNumber: this.props.number,
+            randomNumber: Math.floor((Math.random() * 100) + 1),
             numberOfGuesses: 0,
             pastGuesses: [],
             hint: "Make your Guess!"
@@ -19,6 +19,28 @@ export default class MainPage extends React.Component {
 
     compareGuess(number){
         console.log(number);
+        console.log(this.state.randomNumber);
+        let diff = this.state.randomNumber - number;
+        console.log("This is the difference " + diff);
+        if(diff < 0){
+            diff = diff * -1;
+            console.log("This is the adjusted difference " + diff);
+        }
+
+        if(diff > 10){
+            console.log("If statement working");
+            this.setState({
+                hint: "Cold"
+            });
+        }else if(diff < 10){
+            this.setState({
+                hint: "Hot"
+            });
+        }else if(diff === 0){
+            this.setState({
+                hint: "Right on the Money!"
+            });
+        }
     }
 
 
@@ -29,7 +51,7 @@ export default class MainPage extends React.Component {
                 <h2>WHAT?</h2>
                 <h2>+ NEW GAME</h2>
                 <section>
-                    <Hint />
+                    <Hint message={this.state.hint}/>
                     <GuessForm onGuess={number => this.compareGuess(number)}/>
                     <GuessNumber />
                     <PreviousGuesses />
